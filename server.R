@@ -4,7 +4,6 @@ library(ggplot2)
 
 shinyServer(function(input, output, session) {
   shinyFileChoose(input, 'file', roots=c(wd='/srv/shiny-server'), filetypes=c('', 'csv'))
-  shinySaveButton("save", "Save file", "Save file as ...", filetype=c('', "csv"))
   output$contents <- renderDataTable({
     inFile <- parseFilePaths(roots=c(wd='/srv/shiny-server'), input$file)
     if( NROW(inFile)) {
