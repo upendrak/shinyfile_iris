@@ -2,9 +2,14 @@ library(shiny)
 library(shinyFiles)
 library(ggplot2)
 
+<<<<<<< HEAD
 shinyServer(function(input, output) {
   # shinyFileChoose(input, 'file', roots=c(wd='.'), filetypes=c('', 'csv'))
   # shinySaveButton("save", "Save file", "Save file as ...", filetype=c('', "csv"))
+=======
+shinyServer(function(input, output, session) {
+  shinyFileChoose(input, 'file', roots=c(wd='/srv/shiny-server'), filetypes=c('', 'csv'))
+>>>>>>> 92d7e02d72517af4b25ae4ea389c890d53d8afab
   output$contents <- renderDataTable({
     # inFile <- parseFilePaths(roots=c(wd='.'), input$file)
     inFile <- input$file
