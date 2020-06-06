@@ -11,8 +11,9 @@ shinyUI(pageWithSidebar(
     tags$h3('Select your file'),
     
     # Shiny button   
-    shinyFilesButton(id = 'file', label = 'File select', title = 'Please select a file', multiple = FALSE),
-  
+    #shinyFilesButton(id = 'file', label = 'File select', title = 'Please select a file', multiple = FALSE),
+    fileInput(inputId = 'file', label = 'File select', multiple = FALSE),
+    
     tags$h3('Select your options for table'),
     
     # Horizontal line ----
@@ -64,8 +65,8 @@ shinyUI(pageWithSidebar(
   mainPanel(
     tabsetPanel(type = "tabs",
                 tabPanel("Table", dataTableOutput("contents")),
-                tabPanel("Summary", verbatimTextOutput("summary")),
-                tabPanel("Plot", plotOutput("plt"))
+                tabPanel("Summary", verbatimTextOutput("summary"))#,
+                #tabPanel("Plot", plotOutput("plt"))
     
   )
   ))
